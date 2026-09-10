@@ -1,0 +1,40 @@
+/* Keep team copy on the pixel grid; scroll-linked transforms blur small text. */
+.team .reveal {
+  opacity: 1;
+  transform: none;
+  animation: none;
+}
+.team-heading > p {
+  color: #bdc9bc;
+  font-size: 13px;
+  line-height: 1.9;
+}
+.member-info > span {
+  color: #d1b46f;
+  font-size: 10px;
+  font-weight: 600;
+}
+.member-info h3 {
+  font-size: 22px;
+  font-weight: 700;
+  text-rendering: optimizeLegibility;
+}
+.member-info p {
+  color: #b4c1b3;
+  font-size: 12px;
+  line-height: 1.65;
+}
+.member-info i {
+  color: #d1dbcf;
+  font-size: 13px;
+  line-height: 1.65;
+}
+.member-portrait > span {
+  color: #b8c6b6;
+  font-size: 12px;
+}
+@media (max-width: 760px) {
+  .member-info > span { font-size: 9px; }
+  .member-info h3 { font-size: 18px; }
+  .member-info p { font-size: 11px; }
+}

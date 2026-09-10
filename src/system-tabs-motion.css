@@ -1,0 +1,25 @@
+.system-detail {
+  animation: system-panel-in 0.55s cubic-bezier(0.2, 0.75, 0.25, 1) both;
+}
+
+@keyframes system-panel-in {
+  from {
+    opacity: 0.2;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .system-detail {
+    animation: none;
+  }
+
+  .system-thumbnail {
+    transition: none;
+  }
+}

@@ -1,0 +1,2 @@
+.hero-copy{max-width:min(760px,calc(100vw - 44px))}.hero h1{max-width:700px;margin-top:16px}.hero-intro{max-width:560px}.hero-capabilities{margin-top:25px}.text-action{margin-top:34px}
+@media(max-width:760px){.hero-copy{max-width:calc(100vw - 44px)}.hero h1{max-width:100%;font-size:50px}.hero-intro{font-size:15px}.hero-capabilities{margin-top:19px}.text-action{margin-top:27px}}

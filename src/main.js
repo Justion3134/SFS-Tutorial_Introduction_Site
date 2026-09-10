@@ -1,0 +1,17 @@
+import { createApp } from 'vue'
+import './style.css'
+import './overrides.css'
+import './hero-overrides.css'
+import './achievement-overrides.css'
+import './hero-layout-overrides.css'
+import './system-layout-overrides.css'
+import './logo-overrides.css'
+import './team-text-overrides.css'
+import './hero-vertical-center.css'
+import './team-photo.css'
+import './system-tabs.css'
+import './system-tabs-motion.css'
+import './system-carousel-controls.css'
+import App from './App.vue'
+
+createApp(App).mount('#app')

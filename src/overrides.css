@@ -1,0 +1,21 @@
+/* Horizontal system preview rail */
+.screen-grid {
+  display: flex !important;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 4px 2px 16px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: #6e8c73 #17291d;
+}
+.screen-grid::-webkit-scrollbar { height: 6px; }
+.screen-grid::-webkit-scrollbar-track { border-radius: 999px; background: #17291d; }
+.screen-grid::-webkit-scrollbar-thumb { border-radius: 999px; background: #6e8c73; }
+.screen-card, .screen-placeholder {
+  flex: 0 0 min(310px, 75vw);
+  scroll-snap-align: start;
+}
+@media (max-width: 760px) {
+  .screen-grid { gap: 10px; padding-bottom: 12px; }
+  .screen-card, .screen-placeholder { flex-basis: 78vw; }
+}

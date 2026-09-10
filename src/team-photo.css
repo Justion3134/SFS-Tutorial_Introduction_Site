@@ -1,0 +1,33 @@
+.team-group-photo {
+  position: relative;
+  display: grid;
+  width: 100%;
+  aspect-ratio: 16 / 6;
+  min-height: 330px;
+  margin-top: 68px;
+  place-items: center;
+  overflow: hidden;
+  border: 1px dashed rgb(211 225 206 / .3);
+  color: #b8c7b7;
+  background:
+    linear-gradient(135deg, rgb(36 70 48 / .76), rgb(12 30 20 / .9)),
+    url('/assets/site/mountain-gate.jpg') center / cover;
+  text-align: center;
+}
+.team-group-photo::before {
+  content: '';
+  position: absolute;
+  inset: 24px;
+  border: 1px solid rgb(211 181 108 / .2);
+  pointer-events: none;
+}
+.team-group-photo > div { position: relative; z-index: 1; display: grid; gap: 12px; }
+.team-group-photo span { color: #d1b46f; font-size: 10px; letter-spacing: .18em; }
+.team-group-photo strong { color: #f0f3eb; font-family: "Noto Serif SC"; font-size: clamp(25px, 3vw, 42px); }
+.team-group-photo p { color: #aebcad; font-size: 12px; letter-spacing: .08em; }
+.team-group-photo > b { position: absolute; right: 38px; bottom: 22px; color: rgb(216 185 107 / .35); font-size: 72px; font-weight: 400; }
+@media (max-width: 760px) {
+  .team-group-photo { aspect-ratio: 4 / 3; min-height: 260px; margin-top: 44px; }
+  .team-group-photo::before { inset: 14px; }
+  .team-group-photo > b { right: 20px; bottom: 12px; font-size: 48px; }
+}
