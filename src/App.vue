@@ -11,19 +11,22 @@ const features = [
   ['06', '多模态识别', '拍照或取景即可识别景物并生成讲解，支持图像与文本的联合理解。', 'Vision · Image'],
   ['07', '本地数据持久化', '基于 IndexedDB 的本地数据库，离线也能保存探索记录、路线与个人成就。', 'IndexedDB · Offline']]
 const systemShots = [
-  ['地图导览', '景区范围、景点点位、游客位置与推荐路线汇聚在一张地图。', '实时位置 · 景点识别 · 路线参考'],
-  ['个性化讲解', '围绕不同游客兴趣模式，为同一景点调整现场讲解方式。', '自动识别 · 个性化内容'],
-  ['AI 导游问答', '围绕当前景点追问历史、生态、路线和拍照建议。', '本地知识 · 可信回答'],
-  ['超时空角色对话', '让古树、岩溶、古钟、山风与水滴成为可被追问的景区讲述者。', '沉浸叙事 · 超时空对话'],
-  ['多模态导游', '通过拍照、语音与实时画面，在现场识别景物并展开讲解。', '视觉 · 语音 · RTC'],
-  ['路线规划', '根据步道网络和游览节点，规划适合当下节奏的路线。', '路径参考 · 探索进度'],
-  ['探索与成就', '保存探索点位、健康登山记录和个人游览成果。', '本地记录 · 成就反馈']]
+  ['地图导览', '景区范围、景点点位、游客当前位置与推荐路线汇聚在一张地图。\n跟随清晰的空间线索，从山脚一路找到下一处值得停留的故事。', '实时位置 · 景点识别 · 路线参考'],
+  ['个性化讲解', '围绕儿童、学生、历史、科普与摄影等不同兴趣，为同一景点调整讲述方式。\n走近一处风景，就获得一段更贴合当下视角的现场解读。', '自动识别 · 个性化内容'],
+  ['AI 导游问答', '围绕当前景点继续追问历史、生态、路线和拍照建议，回答紧扣现场情境。\n先关联上方山本地资料，再把你真正关心的问题讲清楚。', '本地知识 · 可信回答'],
+  ['超时空角色对话', '古树、岩溶、古钟、山风与水滴化身为可被追问的景区讲述者。\n让自然与遗迹用各自的口吻，带你进入一段跨越时间的对话。', '沉浸叙事 · 超时空对话'],
+  ['多模态导游', '拍下一株植物、一块岩石或眼前的古建，便可发起图像与文字联合讲解。\n也可以通过语音和实时画面，把问题直接带到山中现场。', '视觉 · 语音 · RTC'],
+  ['路线规划', '结合步道网络、游览节点与当前进度，为不同登山节奏提供路线参考。\n提前看见下一段路的方向，把体力和时间留给真正想看的风景。', '路径参考 · 探索进度'],
+  ['探索与成就', '每到一处点位即可点亮探索进度，解锁属于你的上方山足迹。\n健康登山计时、个人路线记录与本机榜单，让每一步都像完成一项山野挑战。', '点亮地图 · 登山挑战 · 成就榜单']]
 const techStack = ['Vue 3', 'Leaflet 地图', '轻量化 RAG', '大模型对话', '实时语音 RTC', '多模态视觉', '本地持久化']
 const activeSystemIndex = ref(0)
 const activeSystemShot = computed(() => systemShots[activeSystemIndex.value])
 const systemThumbnailStrip = ref(null)
 const members = Array.from({ length: 6 }, (_, index) => String(index + 1).padStart(2, '0'))
 function goTo(id) { isMenuOpen.value = false; document.querySelector(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' }) }
+function openGuideSystem() {
+  // 导游系统链接待确定后在此接入。
+}
 function selectSystem(index) {
   const nextIndex = Math.max(0, Math.min(systemShots.length - 1, index))
   activeSystemIndex.value = nextIndex
@@ -61,6 +64,7 @@ onBeforeUnmount(() => {
           alt="中国地质大学（北京）第4组上方山超时空对话导游系统标志"><span><b>上方山</b><small>超时空对话导游系统</small></span></a>
       <nav class="desktop-nav"><button v-for="[label, id] in navItems" :key="label"
           :class="{ active: activeSection === label }" @click="goTo(id)">{{ label }}</button></nav>
+      <button class="try-now-button" type="button" @click="openGuideSystem">Try Now</button>
       <button class="menu-button" aria-label="打开导航" @click="isMenuOpen = !isMenuOpen"><i></i><i></i></button>
       <nav class="mobile-nav"><button v-for="[label, id] in navItems" :key="label" @click="goTo(id)">{{ label }}</button>
       </nav>
@@ -169,7 +173,10 @@ onBeforeUnmount(() => {
         <div class="device-stage">
           <div class="phone">
             <div class="phone-top"></div>
-            <div class="phone-placeholder"><span>截图预留位置</span><small>{{ activeSystemShot[0] }} 页面截图</small></div>
+            <div class="phone-preview">
+              <video :key="activeSystemIndex" :src="`/video/${activeSystemIndex + 1}.mp4`" autoplay muted loop playsinline
+                :aria-label="`${activeSystemShot[0]} 功能演示视频`"></video>
+            </div>
             <div class="phone-label">{{ activeSystemShot[0] }} / SYSTEM PREVIEW</div>
           </div>
           <div class="system-orbit orbit-a"></div>

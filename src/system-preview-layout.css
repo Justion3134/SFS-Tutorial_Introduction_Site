@@ -17,8 +17,13 @@
   font-size: clamp(40px, 4.4vw, 64px);
 }
 
+.system-showcase .system-detail-copy > p:not(.section-kicker) {
+  white-space: pre-line;
+}
+
 .system-showcase .system-detail .phone {
   transform: none;
+  aspect-ratio: 393 / 900;
 }
 
 @media (max-width: 760px) {

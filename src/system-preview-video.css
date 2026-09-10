@@ -1,0 +1,15 @@
+.system-showcase .phone-preview {
+  width: 100%;
+  height: calc(100% - 35px);
+  overflow: hidden;
+  border-radius: 35px;
+  background: #101910;
+}
+
+.system-showcase .phone-preview video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: top center;
+}

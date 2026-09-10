@@ -18,6 +18,8 @@ import './achievement-copy.css'
 import './achievement-media-layout.css'
 import './team-light.css'
 import './achievement-compact-layout.css'
+import './system-preview-video.css'
+import './try-now-button.css'
 import App from './App.vue'
 
 createApp(App).mount('#app')

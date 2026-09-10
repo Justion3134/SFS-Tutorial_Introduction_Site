@@ -1,0 +1,38 @@
+.site-header {
+  gap: 26px;
+}
+
+.desktop-nav {
+  margin-left: auto;
+}
+
+.try-now-button {
+  min-width: 112px;
+  height: 42px;
+  padding: 0 21px;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  color: #193222;
+  background: #f6f7ef;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  transition: color 0.25s, background 0.25s, transform 0.25s;
+}
+
+.try-now-button:hover {
+  color: #f6f7ef;
+  background: #28523a;
+  transform: translateY(-2px);
+}
+
+.try-now-button:focus-visible {
+  outline: 2px solid #e0c279;
+  outline-offset: 3px;
+}
+
+@media (max-width: 760px) {
+  .try-now-button {
+    display: none;
+  }
+}

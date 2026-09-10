@@ -31,13 +31,6 @@
   transition: border-color 0.25s, color 0.25s, background 0.25s, transform 0.25s;
 }
 
-.system-carousel-arrow::before {
-  content: "";
-  position: absolute;
-  inset: 6px;
-  border: 1px solid rgb(183 208 184 / 0.18);
-}
-
 .system-carousel-arrow span {
   position: relative;
   z-index: 1;
@@ -76,10 +69,6 @@
   .system-carousel-arrow {
     width: 40px;
     height: 52px;
-  }
-
-  .system-carousel-arrow::before {
-    inset: 4px;
   }
 
   .system-carousel-arrow span {
