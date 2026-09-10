@@ -1,0 +1,58 @@
+.team.team-light {
+  color: #1b2b20;
+  background: #edf1e9;
+}
+
+.team-light h2 {
+  color: #173120;
+}
+
+.team-light .team-heading > p {
+  color: #536a58;
+}
+
+.team-light .member-card {
+  border-color: #c7d2c4;
+  background: #f9fbf6;
+}
+
+.team-light .member-portrait {
+  color: #54705b;
+  background: linear-gradient(145deg, #dce8d8, #c8dac7);
+}
+
+.team-light .member-portrait::before {
+  border-color: rgb(157 128 61 / 0.32);
+}
+
+.team-light .member-portrait > span {
+  color: #4e6654;
+}
+
+.team-light .member-portrait b {
+  color: rgb(142 109 41 / 0.62);
+}
+
+.team-light .member-info > span {
+  color: #987733;
+}
+
+.team-light .member-info h3 {
+  color: #173120;
+}
+
+.team-light .member-info p {
+  color: #5b6d5d;
+}
+
+.team-light .member-info i {
+  color: #37513d;
+}
+
+.team-light .team-footer {
+  color: #9b7937;
+}
+
+.team-light .team-footer p {
+  color: #1c3524;
+}

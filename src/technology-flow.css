@@ -1,0 +1,24 @@
+.features .flow-in-technologies {
+  margin-top: 92px;
+  padding: 64px 0 0;
+  border-top: 1px solid #bec9bc;
+  color: #17261a;
+  background: transparent;
+}
+
+.features .flow-in-technologies h2 {
+  margin: 16px 0 58px;
+  font-size: clamp(38px, 5vw, 71px);
+  line-height: 1.25;
+}
+
+@media (max-width: 760px) {
+  .features .flow-in-technologies {
+    margin-top: 58px;
+    padding-top: 48px;
+  }
+
+  .features .flow-in-technologies h2 {
+    margin-bottom: 38px;
+  }
+}

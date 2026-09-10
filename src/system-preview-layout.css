@@ -1,0 +1,38 @@
+/* The phone is taller than its frame at desktop sizes, so reserve a distinct stage below the carousel. */
+.system-showcase .system-detail {
+  min-height: 800px;
+  margin-top: 30px;
+}
+
+.system-showcase .system-detail .device-stage {
+  min-height: 800px;
+}
+
+.system-showcase .system-detail-copy {
+  max-width: 410px;
+  margin-left: clamp(16px, 3vw, 48px);
+}
+
+.system-showcase .system-detail-copy h3 {
+  font-size: clamp(40px, 4.4vw, 64px);
+}
+
+.system-showcase .system-detail .phone {
+  transform: none;
+}
+
+@media (max-width: 760px) {
+  .system-showcase .system-detail {
+    min-height: 0;
+    margin-top: 28px;
+  }
+
+  .system-showcase .system-detail .device-stage {
+    min-height: 650px;
+  }
+
+  .system-showcase .system-detail-copy {
+    max-width: none;
+    margin-left: 0;
+  }
+}

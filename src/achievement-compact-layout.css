@@ -1,0 +1,120 @@
+.statement {
+  min-height: 0;
+}
+
+.statement .statement-layout {
+  grid-template-columns: minmax(350px, 0.72fr) minmax(570px, 1.28fr);
+  gap: clamp(42px, 6vw, 104px);
+  margin-top: 56px;
+}
+
+.statement .display-title > span,
+.statement .display-title > em {
+  display: block;
+  white-space: nowrap;
+}
+
+.statement .statement-copy {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: none;
+  gap: 0 clamp(24px, 3vw, 48px);
+  padding-left: 0;
+  border-left: 0;
+}
+
+.statement .statement-copy > p {
+  max-width: none;
+  margin-bottom: 20px;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.statement .statement-copy > .statement-lead,
+.statement .statement-copy > .statement-closing {
+  grid-column: 1 / -1;
+}
+
+.statement .statement-copy > .statement-lead {
+  max-width: 52em;
+  margin-bottom: 23px;
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+.statement .statement-copy > p:nth-child(2) {
+  margin: 0 0 20px;
+  font-size: 19px;
+  line-height: 1.5;
+}
+
+.statement .statement-copy > .statement-emphasis {
+  align-self: start;
+  margin: 0;
+  padding-top: 15px;
+  font-size: 20px;
+  line-height: 1.55;
+}
+
+.statement .statement-copy > .statement-closing {
+  margin-top: 8px;
+  padding-top: 16px;
+  border-top: 1px solid rgb(193 213 191 / 0.25);
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+.statement .landscape-band {
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  min-height: 310px;
+  margin-top: 24px;
+}
+
+@media (max-width: 1120px) and (min-width: 761px) {
+  .statement .statement-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .statement .statement-copy {
+    max-width: 760px;
+  }
+}
+
+@media (max-width: 760px) {
+  .statement .statement-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-top: 38px;
+  }
+
+  .statement .statement-copy {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .statement .statement-copy > .statement-lead,
+  .statement .statement-copy > .statement-closing {
+    grid-column: auto;
+  }
+
+  .statement .statement-copy > p,
+  .statement .statement-copy > .statement-lead,
+  .statement .statement-copy > .statement-closing {
+    font-size: 15px;
+  }
+
+  .statement .statement-copy > .statement-emphasis {
+    margin: 13px 0 22px;
+    font-size: 20px;
+  }
+
+  .statement .landscape-band {
+    grid-column: auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 250px);
+    min-height: 0;
+    margin-top: 10px;
+  }
+}

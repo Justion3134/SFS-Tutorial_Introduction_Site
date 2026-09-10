@@ -1,0 +1,58 @@
+.statement .statement-layout {
+  grid-template-columns: minmax(250px, 0.8fr) minmax(350px, 1.1fr) minmax(250px, 0.72fr);
+  gap: clamp(32px, 4.5vw, 78px);
+  align-items: start;
+}
+
+.statement .landscape-band {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  align-self: center;
+  min-height: 650px;
+  margin: 0;
+  overflow: hidden;
+}
+
+.statement .landscape-panel {
+  min-height: 0;
+  padding: clamp(20px, 2.1vw, 32px);
+}
+
+.statement .landscape-panel h3 {
+  margin: 9px 0;
+  font-size: clamp(21px, 1.9vw, 31px);
+  line-height: 1.32;
+}
+
+.statement .landscape-panel p:last-child {
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+@media (max-width: 1050px) and (min-width: 761px) {
+  .statement .statement-layout {
+    grid-template-columns: minmax(230px, 0.8fr) minmax(330px, 1.2fr);
+  }
+
+  .statement .landscape-band {
+    grid-column: 1 / -1;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    min-height: 360px;
+  }
+}
+
+@media (max-width: 760px) {
+  .statement .landscape-band {
+    grid-column: auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 300px);
+    min-height: 0;
+    margin-top: 18px;
+  }
+
+  .statement .landscape-panel {
+    padding: 26px 24px;
+  }
+}

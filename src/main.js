@@ -12,6 +12,12 @@ import './team-photo.css'
 import './system-tabs.css'
 import './system-tabs-motion.css'
 import './system-carousel-controls.css'
+import './system-preview-layout.css'
+import './technology-flow.css'
+import './achievement-copy.css'
+import './achievement-media-layout.css'
+import './team-light.css'
+import './achievement-compact-layout.css'
 import App from './App.vue'
 
 createApp(App).mount('#app')

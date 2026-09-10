@@ -1,10 +1,24 @@
 <script setup>
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 const isMenuOpen = ref(false), activeSection = ref('首页'); let syncNavigation
-const navItems = [['首页', '#home'], ['系统成果', '#achievement'], ['核心功能', '#features'], ['系统示例', '#system'], ['项目团队', '#team']]
+const navItems = [['首页', '#home'], ['系统成果', '#achievement'], ['核心技术', '#features'], ['功能展示', '#system'], ['项目团队', '#team']]
 const features = [
-  ['01', '地图导览', '景区范围、景点点位、游客位置与推荐路线汇聚于一张实时地图。', 'LBS · GIS'], ['02', '个性化讲解', '围绕儿童、学生、历史、科普与摄影五种兴趣模式，调整同一景点的叙事方式。', '5 种导览模式'], ['03', 'AI 导游问答', '先检索上方山本地知识，再结合当前点位与路线生成可信回答。', '轻量化 RAG'], ['04', '超时空角色对话', '让古树、岩溶、古钟、山风与水滴成为可被追问的景区讲述者。', '沉浸式叙事'], ['05', '多模态导游', '通过拍照、语音与实时画面，在现场识别景物并展开讲解。', '视觉 · 语音 · RTC'], ['06', '路线规划', '结合步道网络与游览节点，为不同登山节奏提供可见、可达的路线参考。', '路径网络'], ['07', '探索与成就', '探索度、健康登山、路线计时和本机排行榜，让每一步都留下可见的记录。', '本地持久化']]
-const systemShots = [['地图导览', '景区范围、景点点位、游客位置与推荐路线汇聚在一张地图。', '实时位置 · 景点识别 · 路线参考'], ['景点讲解', '进入点位后，系统根据位置与游客模式生成现场讲解。', '自动识别 · 个性化内容'], ['AI 问答', '围绕当前景点追问历史、生态、路线和拍照建议。', '本地知识 · 可信回答'], ['角色对话', '让古树、岩溶、古钟、山风与水滴成为景区讲述者。', '沉浸叙事 · 超时空对话'], ['路线规划', '根据步道网络和游览节点，规划适合当下节奏的路线。', '路径参考 · 探索进度'], ['我的记录', '保存探索点位、健康登山记录和个人游览成果。', '本地记录 · 成就反馈']]
+  ['01', '实时地图导览', '基于 Leaflet 地图引擎，融合高德 POI 数据与本地步道路网，实时呈现景点位置与推荐路线。', 'Leaflet · POI · GIS'],
+  ['02', '后台持续定位', '原生前台定位服务，游客离开 App 也能持续记录轨迹与探索进度。', 'Capacitor · GPS'],
+  ['03', '轻量化 RAG 问答', '本地知识库检索 + 大模型问答，先查景区资料再生成回答，减少 AI 幻觉。', 'Fuse.js · LLM'],
+  ['04', '超时空角色对话', '古树、岩溶、古钟等五种人设，基于场景化提示词工程，让文物与自然“开口说话”。', 'Prompt · Personas'],
+  ['05', '实时语音对话', '接入火山引擎 RTC 与语音大模型，支持自然语音交流与语音合成讲解。', 'RTC · TTS'],
+  ['06', '多模态识别', '拍照或取景即可识别景物并生成讲解，支持图像与文本的联合理解。', 'Vision · Image'],
+  ['07', '本地数据持久化', '基于 IndexedDB 的本地数据库，离线也能保存探索记录、路线与个人成就。', 'IndexedDB · Offline']]
+const systemShots = [
+  ['地图导览', '景区范围、景点点位、游客位置与推荐路线汇聚在一张地图。', '实时位置 · 景点识别 · 路线参考'],
+  ['个性化讲解', '围绕不同游客兴趣模式，为同一景点调整现场讲解方式。', '自动识别 · 个性化内容'],
+  ['AI 导游问答', '围绕当前景点追问历史、生态、路线和拍照建议。', '本地知识 · 可信回答'],
+  ['超时空角色对话', '让古树、岩溶、古钟、山风与水滴成为可被追问的景区讲述者。', '沉浸叙事 · 超时空对话'],
+  ['多模态导游', '通过拍照、语音与实时画面，在现场识别景物并展开讲解。', '视觉 · 语音 · RTC'],
+  ['路线规划', '根据步道网络和游览节点，规划适合当下节奏的路线。', '路径参考 · 探索进度'],
+  ['探索与成就', '保存探索点位、健康登山记录和个人游览成果。', '本地记录 · 成就反馈']]
+const techStack = ['Vue 3', 'Leaflet 地图', '轻量化 RAG', '大模型对话', '实时语音 RTC', '多模态视觉', '本地持久化']
 const activeSystemIndex = ref(0)
 const activeSystemShot = computed(() => systemShots[activeSystemIndex.value])
 const systemThumbnailStrip = ref(null)
@@ -68,55 +82,41 @@ onBeforeUnmount(() => {
     </section>
     <section id="achievement" class="statement section-dark" data-nav="系统成果">
       <div class="orbital-line"></div>
-      <div class="section-kicker reveal">01 / PROJECT OUTCOME</div>
+      <div class="section-kicker reveal">01 / 系统成果</div>
       <div class="statement-layout">
-        <h2 class="display-title reveal">一座山的<br><em>数字讲述者。</em></h2>
+        <h2 class="display-title reveal"><span>穿越山水，</span><em>聆听千年。</em><small>上方山超时空对话导游系统</small></h2>
         <div class="statement-copy reveal">
-          <p>上方山同时拥有森林生态、千年寺庙与岩溶洞穴。面对分散的景点、复杂的山路与不同游客的期待，我们将一套移动端智能导游带到现场。</p>
-          <p>这不是一张静态地图，而是一个能够定位、理解、讲述并陪伴探索的超时空对话导游系统。</p>
-          <dl>
+          <p class="statement-lead">上方山，坐落于北京西南，山林苍翠、峰峦叠秀，拥有丰富的自然景观与深厚的人文底蕴。这里既有独特的山地地貌、森林生态与丰富的生物资源，也承载着悠久的历史文化、古刹遗迹与民间传说，是集自然观光、生态体验、历史文化与科普教育于一体的综合性旅游胜地。</p>
+          <p>然而，一座山的故事，远不止眼前所见。</p>
+          <p>我们以 3S 技术与人工智能为核心，构建“上方山超时空对话导游系统”，将山水、历史与科技融入一张可交互的数字地图。游客不仅能够看见上方山，更可以沿着空间轨迹探索景点，了解自然资源与人文遗迹，并通过智能对话，与不同时空中的“上方山”展开交流，让静态的景观变成可以阅读、可以互动、可以探索的鲜活故事。</p>
+          <p>从山川地貌到森林生态，从古刹遗迹到历史传说，从现实游览到数字导览，我们希望打破传统导游中“看景点、听介绍”的单向体验，让每一次行走都成为一次发现，让每一处景观都有自己的故事。</p>
+          <p class="statement-emphasis">让科技连接空间，让对话穿越时间。</p>
+          <p class="statement-closing">上方山不只是一个目的地，更是一座等待被探索的“时空博物馆”。现在，跟随超时空对话导游系统，开启一场跨越山水与历史的沉浸式探索之旅。</p>
+        </div>
+        <div class="landscape-band">
+          <div class="landscape-panel cave">
             <div>
-              <dt>14</dt>
-              <dd>景区点位</dd>
+              <p class="eyebrow"><span></span> KARST CAVE</p>
+              <h3>岩溶，记录山的时间。</h3>
+              <p>云水洞深处的钟乳与岩层，是自然书写的地质档案。</p>
             </div>
+          </div>
+          <div class="landscape-panel temple">
             <div>
-              <dt>45</dt>
-              <dd>知识片段</dd>
+              <p class="eyebrow"><span></span> CULTURAL RELICS</p>
+              <h3>古刹，守望山的记忆。</h3>
+              <p>寺院、古树与山道，共同构成上方山的人文坐标。</p>
             </div>
-            <div>
-              <dt>05</dt>
-              <dd>对话角色</dd>
-            </div>
-            <div>
-              <dt>06</dt>
-              <dd>成员共创</dd>
-            </div>
-          </dl>
+          </div>
         </div>
       </div>
       <div class="terrain-silhouette"><span></span><span></span><span></span></div>
-      <div class="landscape-band">
-        <div class="landscape-panel cave">
-          <div>
-            <p class="eyebrow"><span></span> KARST CAVE</p>
-            <h3>岩溶，记录山的时间。</h3>
-            <p>云水洞深处的钟乳与岩层，是自然书写的地质档案。</p>
-          </div>
-        </div>
-        <div class="landscape-panel temple">
-          <div>
-            <p class="eyebrow"><span></span> CULTURAL RELICS</p>
-            <h3>古刹，守望山的记忆。</h3>
-            <p>寺院、古树与山道，共同构成上方山的人文坐标。</p>
-          </div>
-        </div>
-      </div>
     </section>
-    <section id="features" class="features" data-nav="核心功能">
-      <header class="section-heading reveal">
-        <p class="section-kicker">02 / SYSTEM CAPABILITIES</p>
-        <h2>从脚下的路，<br>到眼前的故事。</h2>
-        <p>一条从“定位游客”到“持续探索”的现场导览闭环。</p>
+  <section id="features" class="features" data-nav="核心技术">
+    <header class="section-heading reveal">
+      <p class="section-kicker">02 / 核心技术</p>
+      <h2>关键技术，<br>让山开口说话。</h2>
+      <p>从定位、地图到知识检索与实时对话，支撑每一次在山中的智能回应。</p>
       </header>
       <div class="feature-list">
         <article v-for="f in features" :key="f[0]" class="feature-item reveal"><span class="feature-no">{{ f[0] }}</span>
@@ -126,10 +126,24 @@ onBeforeUnmount(() => {
           </div><span class="feature-tag">{{ f[3] }}</span><span class="feature-arrow">↗</span>
         </article>
       </div>
+      <section class="flow flow-in-technologies">
+        <p class="section-kicker reveal">技术流程</p>
+        <h2 class="reveal">在山里，<em>每一步都有回应。</em></h2>
+        <div class="flow-path reveal"><template
+            v-for="(x, i) in [['01', '定位', '识别游客所在位置'], ['02', '检索', '关联景区本地资料'], ['03', '生成', '组织个性化讲解'], ['04', '探索', '记录行走与发现']]"
+            :key="x[0]">
+            <div><b>{{ x[0] }}</b><i>{{ x[1] }}</i><small>{{ x[2] }}</small></div><span v-if="i < 3"></span>
+          </template>
+        </div>
+      </section>
+      <!-- <div class="tech-stack reveal">
+        <span class="tech-stack-label">TECH STACK</span>
+        <ul class="tech-stack-list"><li v-for="t in techStack" :key="t">{{ t }}</li></ul>
+      </div> -->
     </section>
-    <section id="system" class="system-showcase section-dark" data-nav="系统示例">
+    <section id="system" class="system-showcase section-dark" data-nav="功能展示">
       <header class="section-heading reveal">
-        <p class="section-kicker">03 / SYSTEM PREVIEW</p>
+        <p class="section-kicker">03 / 功能展示</p>
         <h2>把整个上方山，<br>装进口袋。</h2>
         <p>选择一个功能，查看它在导游系统中的使用方式。</p>
       </header>
@@ -164,20 +178,10 @@ onBeforeUnmount(() => {
         </div>
       </div>
     </section>
-    <section class="flow">
-      <p class="section-kicker reveal">04 / HOW IT WORKS</p>
-      <h2 class="reveal">在山里，<em>每一步都有回应。</em></h2>
-      <div class="flow-path reveal"><template
-          v-for="(x, i) in [['01', '定位', '识别游客所在位置'], ['02', '检索', '关联景区本地资料'], ['03', '生成', '组织个性化讲解'], ['04', '探索', '记录行走与发现']]"
-          :key="x[0]">
-          <div><b>{{ x[0] }}</b><i>{{ x[1] }}</i><small>{{ x[2] }}</small></div><span v-if="i < 3"></span>
-        </template>
-      </div>
-    </section>
-    <section id="team" class="team section-dark" data-nav="项目团队">
+    <section id="team" class="team team-light" data-nav="项目团队">
       <header class="team-heading reveal">
         <div>
-          <p class="section-kicker">05 / TEAM FOUR</p>
+          <p class="section-kicker">04 / 项目团队</p>
           <h2>六个人，<br>一座山。</h2>
         </div>
         <p>中国地质大学（北京）<br>上方山国家森林公园实习 · 第 4 组</p>
