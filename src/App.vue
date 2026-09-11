@@ -213,6 +213,7 @@ onBeforeUnmount(() => {
       </div>
       <div class="team-footer reveal"><img src="/assets/site/group4-logo.png" alt="第4组上方山超时空对话导游系统标志">
         <p>我们在上方山相遇，<br>也让更多人与上方山相遇。</p>
+        <a class="friend-link" href="" @click.prevent>友情链接：探索上方山天坑（上方山3S综合实习2组）</a>
       </div>
     </section>
     <footer><span>SHANGFANGSHAN TIME-SPACE DIALOGUE GUIDE SYSTEM</span><span>© 2026 GROUP 04 · CUGB</span></footer>
