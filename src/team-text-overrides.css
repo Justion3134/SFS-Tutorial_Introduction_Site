@@ -37,4 +37,12 @@
   .member-info > span { font-size: 9px; }
   .member-info h3 { font-size: 18px; }
   .member-info p { font-size: 11px; }
+  .member-info i {
+    display: block;
+    margin-top: 10px;
+    color: #37513d;
+    font-size: 11px;
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+  }
 }
