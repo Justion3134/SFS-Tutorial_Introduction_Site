@@ -22,10 +22,17 @@ const techStack = ['Vue 3', 'Leaflet 地图', '轻量化 RAG', '大模型对话'
 const activeSystemIndex = ref(0)
 const activeSystemShot = computed(() => systemShots[activeSystemIndex.value])
 const systemThumbnailStrip = ref(null)
-const members = Array.from({ length: 6 }, (_, index) => String(index + 1).padStart(2, '0'))
+const teamMembers = [
+  { number: '01', name: '关威', role: '组长', motto: 'Reconnecting... waiting for network', image: '/introduction/1/e8620990-16ef-4e15-afcc-07ebe3316ff8.png' },
+  { number: '02', name: '林一男', role: '副组长', motto: '가는 정이 있어야 오는 정이 있다', image: '/introduction/2/d4697e56-ceef-45bb-82be-02dd70f21e7b.png' },
+  { number: '03', name: '贾士轩', role: '数据采集与系统测试', motto: '这gpt怎么又宕机了！?', image: '/introduction/3/c86072c5-5963-4121-a4de-eadfce47f04e.png' },
+  { number: '04', name: '马靖宇', role: '核心开发', motto: 'ᯤ 正在重新连接 5∕5', image: '/introduction/4/04e5b128-d1fc-4c7c-8bf1-e96235958105.png' },
+  { number: '05', name: '邱源桃', role: '素材收集和功能调研', motto: '孤独的吗喽［(－－)］zzz', image: '/introduction/5/1013627c-0633-4307-a925-831fbd380e0a.png' },
+  { number: '06', name: '李泽华', role: '后勤保障和数据处理', motto: '人不能一直活着', image: '/introduction/6/a26b1396-5fde-4a26-9aa7-f3b191741902.png' }
+]
 function goTo(id) { isMenuOpen.value = false; document.querySelector(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' }) }
 function openGuideSystem() {
-  // 导游系统链接待确定后在此接入。
+  window.location.href = 'http://localhost:5174'
 }
 function selectSystem(index) {
   const nextIndex = Math.max(0, Math.min(systemShots.length - 1, index))
@@ -194,16 +201,13 @@ onBeforeUnmount(() => {
         <p>中国地质大学（北京）<br>上方山国家森林公园实习 · 第 4 组</p>
       </header>
       <div class="team-group-photo reveal">
-        <div><span>GROUP 04 / SHANGFANGSHAN</span><strong>六人合照预留位置</strong>
-          <p>建议使用横向团队合照</p>
-        </div><b>04</b>
       </div>
       <div class="member-grid">
-        <article v-for="number in members" :key="number" class="member-card reveal">
-          <div class="member-portrait"><span>成员照片<br>预留位置</span><b>{{ number }}</b></div>
-          <div class="member-info"><span>TEAM MEMBER / {{ number }}</span>
-            <h3>成员姓名</h3>
-            <p>个人职责 · 待补充</p><i>“个人宣传标语预留位置”</i>
+        <article v-for="member in teamMembers" :key="member.number" class="member-card reveal">
+          <div class="member-portrait full-photo" :style="{ backgroundColor: '#fff' }"><img :src="member.image" :alt="`${member.name}的个人照片`" loading="lazy" :style="{ objectFit: 'contain', objectPosition: 'center', backgroundColor: '#fff', filter: 'none' }"><b>{{ member.number }}</b></div>
+          <div class="member-info"><span>TEAM MEMBER / {{ member.number }}</span>
+            <h3>{{ member.name }}</h3>
+            <p>{{ member.role }}</p><i>“{{ member.motto }}”</i>
           </div>
         </article>
       </div>
