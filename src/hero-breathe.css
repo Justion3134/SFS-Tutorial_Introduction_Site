@@ -1,0 +1,10 @@
+.hero-photo {
+  animation: hero-breathe-strong 9s ease-in-out infinite alternate;
+  transform-origin: center center;
+}
+
+@keyframes hero-breathe-strong {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1.13); }
+}

@@ -26,7 +26,7 @@ const teamMembers = [
   { number: '01', name: '关威', role: '组长', motto: 'Reconnecting... waiting for network', image: '/introduction/1/e8620990-16ef-4e15-afcc-07ebe3316ff8.png' },
   { number: '02', name: '林一男', role: '副组长', motto: '가는 정이 있어야 오는 정이 있다', image: '/introduction/2/d4697e56-ceef-45bb-82be-02dd70f21e7b.png' },
   { number: '03', name: '贾士轩', role: '数据采集与系统测试', motto: '这gpt怎么又宕机了！?', image: '/introduction/3/c86072c5-5963-4121-a4de-eadfce47f04e.png' },
-  { number: '04', name: '马靖宇', role: '核心开发', motto: 'ᯤ 正在重新连接 5∕5', image: '/introduction/4/04e5b128-d1fc-4c7c-8bf1-e96235958105.png' },
+  { number: '04', name: '马靖宇', role: '核心开发', motto: 'ᯤ 正在重新连接 5∕5', image: '/introduction/4/86ce2aa95f51c21f4dea13dfcf6c6d5a.jpg' },
   { number: '05', name: '邱源桃', role: '素材收集和功能调研', motto: '孤独的吗喽［(－－)］zzz', image: '/introduction/5/1013627c-0633-4307-a925-831fbd380e0a.png' },
   { number: '06', name: '李泽华', role: '后勤保障和数据处理', motto: '人不能一直活着', image: '/introduction/6/a26b1396-5fde-4a26-9aa7-f3b191741902.png' }
 ]
