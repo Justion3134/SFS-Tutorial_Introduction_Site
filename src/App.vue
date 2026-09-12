@@ -198,7 +198,7 @@ onBeforeUnmount(() => {
           <p class="section-kicker">04 / 项目团队</p>
           <h2>六个人，<br>一座山。</h2>
         </div>
-        <p>中国地质大学（北京）<br>上方山国家森林公园实习 · 第 4 组</p>
+        <p>人工智能学院<br>上方山国家森林公园实习 · 第 4 组</p>
       </header>
       <div class="team-group-photo reveal">
       </div>
