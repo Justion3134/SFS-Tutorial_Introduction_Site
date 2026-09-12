@@ -81,7 +81,7 @@ onBeforeUnmount(() => {
       <div class="hero-grid"></div>
       <div class="hero-vignette"></div>
       <div class="hero-copy reveal">
-        <p class="eyebrow"><span></span> 中国地质大学（北京）· 3S综合实习 · 第 4 组</p>
+        <p class="eyebrow"><span></span> 人工智能学院 · 3S综合实习 · 第 4 组</p>
         <p class="system-label">SHANGFANGSHAN TIME-SPACE DIALOGUE GUIDE SYSTEM</p>
         <h1>上方山<em>超时空对话导游系统</em></h1>
         <!-- <p class="hero-intro">让山，开口说话<br>用定位、知识库与 AI 对话，把景区导览带到游客身边。</p> -->
